@@ -1,0 +1,35 @@
+<h1>Correos enviados</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Value</th>
+    <th>Enviado</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.value %></td>
+      <td><%= %></td>
+    </tr>
+
+    <%= 
+	if user.value==1
+	user.value = 1
+	#UserMailer.registration_confirmation(user).deliver
+	end
+    %>
+
+  <% end %>
+</table>
+
+<br/>
+
+
+<%= link_to 'Regresar', {:controller => :users, :action => :index}, :method => :get %>

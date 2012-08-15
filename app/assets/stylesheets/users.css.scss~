@@ -1,0 +1,18 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+tr:hover
+{ 
+	background-color:yellow;
+}
+
+#a{
+	background-color: #A9F5A9;
+}
+#b{
+	background-color: #F5F6CE;
+}
+#c{
+	background-color: #F5A9BC;
+}
+

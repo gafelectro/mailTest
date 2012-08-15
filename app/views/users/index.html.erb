@@ -1,0 +1,42 @@
+<h1>Listing users</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Correo</th>
+    <th>Enviar Correo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% var1 = []; i = 0 %>
+
+<% @users.each do |user| %>
+  <tr id=<%= if user.value == 'No enviado' 
+		     'c'
+		   elsif user.value == 'Enviado'
+		     'a'
+		   else
+		     'b'
+		   end%> >
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.value %></td>
+    <td><% var1[i] = user.name; i=i+1 %>
+	<%= button_to 'Activar/Desactivar', edit_enviar_path(user.id), :method => :get %></td>
+    </td>
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User', new_user_path %>
+
+
+<%= button_to 'Enviar', {:controller => :enviar, :action => :enviar}, :method => :get, :value => 2 %>
